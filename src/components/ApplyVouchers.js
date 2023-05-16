@@ -11,18 +11,24 @@ import firebase from "../database/firebase";
 const ApplyVouchers = () => {
     const [gorder, setgOrders] = useState({});
     const [order, setOrders] = useState({});
+    const [unique, setUnique] = useState({});
+    // function getUnique(Array){
+    //     for (let i=0; i<Array.length();i++){
+    //         console.log(Array[i].userEmail);
+    //         unique = [...new Set(Array.map(item => item[i].userEmail))];
+    //     }
+    // }
+    // function getUniqueEmails(array) {
+    //     let uniqueEmails = new Set(); // Use a Set to store unique email addresses
 
-    function getUniqueEmails(array) {
-        let uniqueEmails = new Set(); // Use a Set to store unique email addresses
+    //     for (let obj of array) {
+    //         if (obj.length > 0 && typeof obj[0] === 'string') { // Check if the first index is a string
+    //             uniqueEmails.add(obj[0]);
+    //         }
+    //     }
 
-        for (let obj of array) {
-            if (obj.length > 0 && typeof obj[0] === 'string') { // Check if the first index is a string
-                uniqueEmails.add(obj[0]);
-            }
-        }
-
-        return Array.from(uniqueEmails);
-    }
+    //     return Array.from(uniqueEmails);
+    // }
 
     useEffect(() => {
         const dbRef = firebase.database().ref();
@@ -44,6 +50,7 @@ const ApplyVouchers = () => {
                         setOrders(msg);
                     });
                 }
+                // console.warn("SetOrder\n",order);
                 for (let index = 0; index < arr2.length; index++) {
                     // console.log("array length = " + arr2.length)
                     // console.log("index = " + index)
@@ -55,9 +62,19 @@ const ApplyVouchers = () => {
                         setgOrders(ord);
                     });
                 }
+                // console.warn("SetgOrders\n",order[0].userEmail);
+                // getUnique(order);
+                let gmail = [];
+                for (let i = 0; i < order.length; i++) {
+                    // console.log(i,order[i].userEmail);
+                    gmail.push(order[i].userEmail);
+                    // setUnique = [...new Set(order.map(item => item[i].userEmail))];
+                }
+                let g = gmail.filter((item, i, ar) => ar.indexOf(item) === i);
+                // console.log("gmail",g);
+                setUnique(g);
+                // console.log("unique\n",unique)
             }
-            const uniqueEmails = getUniqueEmails(setOrders);
-                console.log(uniqueEmails);
         });
     }, []);
     return (
@@ -89,6 +106,7 @@ const ApplyVouchers = () => {
                         <tbody>
                             {order.length > 0 ? (
                                 order.map((id, index) => (
+
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>{order[index].userEmail}</td>

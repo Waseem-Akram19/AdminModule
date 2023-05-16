@@ -83,10 +83,10 @@ const ManageOrder = () => {
                                 <th>UserEmail</th>
                                 <th>UserContact</th>
                                 <th>OrderTime</th>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
                                 <th>OrderStatus</th>
-                                <th>ItemNameItemPriceOrderQuantity</th>
+                                <th>ItemName</th>
+                                <th>ItemPrice</th>
+                                <th>OrderQuantity</th>
                                 <th>Action</th>
                                 {/* <th>ItemPrice</th>
                                 <th>OrderQuantity</th> */}
@@ -100,17 +100,37 @@ const ManageOrder = () => {
                                         <td>{order[index].userEmail}</td>
                                         <td>{order[index].userNumber}</td>
                                         <td>{order[index].orderTime}</td>
-                                        <td>{order[index].longitude}</td>
-                                        <td>{order[index].latitude}</td>
+                                        {/* <td>{order[index].longitude}</td>
+                                        <td>{order[index].latitude}</td> */}
                                         <td>{order[index].status}</td>
                                         {/* <td>{order[index].Items[id].count}</td> */}
-                                        {id.Items.map((subid, inx) => (
-                                            <tr key={inx}>
-                                                <td>{subid.itemName}</td>,
-                                                <td>{subid.itemPrice}</td>,
-                                                <td>{subid.count}</td>
-                                            </tr>
-                                        ))}
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    <td>{subid.itemName}</td>
+                                                    {/* <td>{subid.itemPrice}</td>, */}
+                                                    {/* <td>{subid.count}</td> */}
+                                                </tr>
+                                            ))}
+                                        </td>
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    {/* <td>{subid.itemName}</td>, */}
+                                                    <td>{subid.itemPrice}</td>
+                                                    {/* <td>{subid.count}</td> */}
+                                                </tr>
+                                            ))}
+                                        </td>
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    {/* <td>{subid.itemName}</td>, */}
+                                                    {/* <td>{subid.itemPrice}</td>, */}
+                                                    <td>{subid.count}</td>
+                                                </tr>
+                                            ))}
+                                        </td>
                                         <td>
                                             <Link to={`/updateorder/${id}`}>
                                                 <Button variant='info' title="Edit user details"
