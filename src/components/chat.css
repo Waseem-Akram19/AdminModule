@@ -1,0 +1,45 @@
+.head{
+    justify-self: center !important;
+    font-weight: bold;
+}
+.headsec{
+    justify-content: center !important;
+    font-weight: bold;
+    position: absolute;
+    background-color: #31D2F2;
+    width: 500px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-left: -25px;
+    margin-top: -40px;
+}
+.card-big{
+    margin-left: 480px;
+    margin-top: 50px;
+    width: 500px;
+    overflow-y: scroll;
+    height: 400px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.card-bg{
+    margin-left: 425px;
+    margin-top: 50px;
+    width: 500px;
+}
+.msginput{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -50px;
+    margin-left: 510px;
+    position:absolute;
+}
+.msgfield{
+    margin-right: 10px;
+    width: 350px;
+    border-radius: 15px;
+}
+.btn{
+    width: 60px;
+    border-radius: 15px;
+}
