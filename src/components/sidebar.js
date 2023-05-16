@@ -57,9 +57,9 @@ const Sidebar = () => {
             <NavLink exact to="/" activeClassName="activeClicked" className={`nav-link`}>
               <CDBSidebarMenuItem >Manage Vouchers</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/addvouchers" activeClassName="activeClicked" className={`nav-link list`}>
+            {/* <NavLink exact to="/addvouchers" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >Add Vouchers</CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink> */}
             <NavLink exact to="/applyvouchers" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >Apply Vouchers</CDBSidebarMenuItem>
             </NavLink>

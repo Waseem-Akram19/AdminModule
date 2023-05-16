@@ -7,6 +7,8 @@ import {
     Row,
     Table,
 } from "react-bootstrap";
+
+import './Vouchers.css';
 import firebase from "../database/firebase";
 const ApplyVouchers = () => {
     const [gorder, setgOrders] = useState({});
@@ -85,77 +87,23 @@ const ApplyVouchers = () => {
             </Row>
             <Row className='mb-5'>
                 <Col>
-                    <Table className="table-hover square border border-secondry tabledata mt-5">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>UserEmail</th>
-                                <th>UserContact</th>
-                                <th>OrderTime</th>
-                                {/* <th>Longitude</th>
-                                <th>Latitude</th> */}
-                                <th>OrderStatus</th>
-                                <th>ItemName</th>
-                                <th>ItemPrice</th>
-                                <th>OrderQuantity</th>
-                                <th>Action</th>
-                                {/* <th>ItemPrice</th>
-                                <th>OrderQuantity</th> */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {order.length > 0 ? (
-                                order.map((id, index) => (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>{order[index].userEmail}</td>
-                                        <td>{order[index].userNumber}</td>
-                                        <td>{order[index].orderTime}</td>
-                                        {/* <td>{order[index].longitude}</td>
-                                        <td>{order[index].latitude}</td> */}
-                                        <td>{order[index].status}</td>
-                                        {/* <td>{order[index].Items[id].count}</td> */}
-                                        <td>
-                                            {id.Items.map((subid, inx) => (
-                                                <tr key={inx}>
-                                                    <td>{subid.itemName}</td>
-                                                    {/* <td>{subid.itemPrice}</td>, */}
-                                                    {/* <td>{subid.count}</td> */}
-                                                </tr>
-                                            ))}
-                                        </td>
-                                        <td>
-                                            {id.Items.map((subid, inx) => (
-                                                <tr key={inx}>
-                                                    {/* <td>{subid.itemName}</td>, */}
-                                                    <td>{subid.itemPrice}</td>
-                                                    {/* <td>{subid.count}</td> */}
-                                                </tr>
-                                            ))}
-                                        </td>
-                                        <td>
-                                            {id.Items.map((subid, inx) => (
-                                                <tr key={inx}>
-                                                    {/* <td>{subid.itemName}</td>, */}
-                                                    {/* <td>{subid.itemPrice}</td>, */}
-                                                    <td>{subid.count}</td>
-                                                </tr>
-                                            ))}
-                                        </td>
-                                        <td>
-                                            <Link to={`/updateorder/${id}`}>
-                                                <Button variant='info' title="Edit user details"
-                                                    className="mx-2"> Edit</Button>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <p>No messages found.</p>
-                            )}
-
-                        </tbody>
-                    </Table>
+                    <div className="div-wrap">
+                        {unique.map((item, index) => (
+                            <div key={index} className="custom-div">
+                                <h3 style={{ textAlign: "center", color: "white" }} className="mt-1">Voucher</h3>
+                                <h6 style={{ color: "white" }} className="mt-2">User: {item}</h6>
+                                <Link to={`/addvouchers/${item}`}>
+                                    <button className="mt-5 cta" style={{ textAlign: "center" }}>
+                                        <span className="text-center">Apply</span>
+                                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                                            <path d="M1,5 L11,5"></path>
+                                            <polyline points="8 1 12 5 8 9"></polyline>
+                                        </svg>
+                                    </button>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
                 </Col>
             </Row>
         </Container>

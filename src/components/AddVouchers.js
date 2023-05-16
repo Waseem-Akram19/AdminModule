@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import firebase from "../database/firebase";
 
@@ -6,24 +7,27 @@ import './AddUser.css';
 import Sidebar from './sidebar'
 import Navbar from './Navbar'
 
-const initialState = {
-    vcode: '',
-    vminimumordervalue: '',
-    vdiscountpercentage: '',
-    vexpireddate: '',
-};
-
 const AddVouchers = () => {
     const styles = {
         backgroundColor: '#f2f2f2', // set the background color to a light gray
         // height: '100vh', // set the height of the component to be the full viewport height
     };
+    const { id } = useParams();
+    const initialState = {
+        vcode: '',
+        vminimumordervalue: '',
+        vdiscountpercentage: '',
+        vexpireddate: '',
+        userid: id,
+    };
     const [state, setState] = useState(initialState);
     const [showPlaceholders, setShowPlaceholders] = useState(true);
     const { vcode, vminimumordervalue, vdiscountpercentage, vexpireddate } = state;
     // const [selectedCategory, setSelectedCategory] = useState("Fastfood"); // initialize with a default value
-
-
+    // const userid = id;
+    // userid = id;
+    // setState.push(userid);
+    // console.log(id);
     const handleCategoryChange = (e) => {
         const { name, value } = e.target;
         // Validate input based on input name
@@ -56,7 +60,8 @@ const AddVouchers = () => {
             return;
         }
         try {
-            const dbRef = firebase.database().ref(`/Vauchers`);
+            // console.log("user\n",id);
+            const dbRef = firebase.database().ref(`/Vouchers`);
             dbRef.push(state, () => { });
             alert('Added Data Successfully');
             // Reset input fields to their original state

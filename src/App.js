@@ -48,7 +48,7 @@ const App = () => {
               <Route path='/updatefoodfastfood/:id' element={<UpdatedFoodFastFood/>} />
               <Route path='/manageorder' element={<ManageOrder/>} />
               <Route path='/updateorder/:userKey' element={<UpdateOrder/>} />
-              <Route path='/addvouchers' element={<AddVouchers/>} />
+              <Route path='/addvouchers/:id' element={<AddVouchers/>} />
               <Route path='/applyvouchers' element={<ApplyVouchers/>} />
           </Routes>
         </div>
