@@ -106,7 +106,6 @@ const ApplyVouchers = () => {
                         <tbody>
                             {order.length > 0 ? (
                                 order.map((id, index) => (
-
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>{order[index].userEmail}</td>
