@@ -11,6 +11,19 @@ import firebase from "../database/firebase";
 const ApplyVouchers = () => {
     const [gorder, setgOrders] = useState({});
     const [order, setOrders] = useState({});
+
+    function getUniqueEmails(array) {
+        let uniqueEmails = new Set(); // Use a Set to store unique email addresses
+
+        for (let obj of array) {
+            if (obj.length > 0 && typeof obj[0] === 'string') { // Check if the first index is a string
+                uniqueEmails.add(obj[0]);
+            }
+        }
+
+        return Array.from(uniqueEmails);
+    }
+
     useEffect(() => {
         const dbRef = firebase.database().ref();
         dbRef.child("Orders").get().then((snapshot) => {
@@ -43,6 +56,8 @@ const ApplyVouchers = () => {
                     });
                 }
             }
+            const uniqueEmails = getUniqueEmails(setOrders);
+                console.log(uniqueEmails);
         });
     }, []);
     return (
@@ -60,10 +75,12 @@ const ApplyVouchers = () => {
                                 <th>UserEmail</th>
                                 <th>UserContact</th>
                                 <th>OrderTime</th>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
+                                {/* <th>Longitude</th>
+                                <th>Latitude</th> */}
                                 <th>OrderStatus</th>
-                                <th>ItemNameItemPriceOrderQuantity</th>
+                                <th>ItemName</th>
+                                <th>ItemPrice</th>
+                                <th>OrderQuantity</th>
                                 <th>Action</th>
                                 {/* <th>ItemPrice</th>
                                 <th>OrderQuantity</th> */}
@@ -77,17 +94,37 @@ const ApplyVouchers = () => {
                                         <td>{order[index].userEmail}</td>
                                         <td>{order[index].userNumber}</td>
                                         <td>{order[index].orderTime}</td>
-                                        <td>{order[index].longitude}</td>
-                                        <td>{order[index].latitude}</td>
+                                        {/* <td>{order[index].longitude}</td>
+                                        <td>{order[index].latitude}</td> */}
                                         <td>{order[index].status}</td>
                                         {/* <td>{order[index].Items[id].count}</td> */}
-                                        {id.Items.map((subid, inx) => (
-                                            <tr key={inx}>
-                                                <td>{subid.itemName}</td>,
-                                                <td>{subid.itemPrice}</td>,
-                                                <td>{subid.count}</td>
-                                            </tr>
-                                        ))}
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    <td>{subid.itemName}</td>
+                                                    {/* <td>{subid.itemPrice}</td>, */}
+                                                    {/* <td>{subid.count}</td> */}
+                                                </tr>
+                                            ))}
+                                        </td>
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    {/* <td>{subid.itemName}</td>, */}
+                                                    <td>{subid.itemPrice}</td>
+                                                    {/* <td>{subid.count}</td> */}
+                                                </tr>
+                                            ))}
+                                        </td>
+                                        <td>
+                                            {id.Items.map((subid, inx) => (
+                                                <tr key={inx}>
+                                                    {/* <td>{subid.itemName}</td>, */}
+                                                    {/* <td>{subid.itemPrice}</td>, */}
+                                                    <td>{subid.count}</td>
+                                                </tr>
+                                            ))}
+                                        </td>
                                         <td>
                                             <Link to={`/updateorder/${id}`}>
                                                 <Button variant='info' title="Edit user details"
