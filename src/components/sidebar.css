@@ -28,9 +28,9 @@
   }
   .nav-link:hover {
     /* background-color: #f7b80d; */
-    background-color: lightgray;
+    background-color: #FF8B66;
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
   } 
   .list{
     /* margin-left: 40px; */

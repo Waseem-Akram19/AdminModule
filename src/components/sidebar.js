@@ -14,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <div className={`app`} style={{ display: "flex", height: "100%", overflow: "scroll initial" }}>
-      <CDBSidebar textColor="#FFF" backgroundColor="#373656">
+      <CDBSidebar textColor="#FFF" backgroundColor="#1A88CA">
         <CDBSidebarHeader prefix={<i className="fa fa-bars"></i>}>
           {/* <h4>ADMIN</h4> */}
         {/* <Header>ADMIN</Header> */}
@@ -30,9 +30,9 @@ const Sidebar = () => {
             <NavLink exact to="/viewusers" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >View Users</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/adduser" activeClassName="activeClicked" className={`nav-link list`}>
+            {/* <NavLink exact to="/adduser" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >Add User</CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink> */}
             <NavLink exact to="/managefood" activeClassName="activeClicked" className={`nav-link`}>
               <CDBSidebarMenuItem >ManageFood</CDBSidebarMenuItem>
             </NavLink>
@@ -45,23 +45,26 @@ const Sidebar = () => {
             <NavLink exact to="/addbiscuits" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >Add Biscuits</CDBSidebarMenuItem>
             </NavLink>
+            <NavLink exact to="/manageorder" activeClassName="activeClicked" className={`nav-link`}>
+              <CDBSidebarMenuItem >ManageOrder</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/" activeClassName="activeClicked" className={`nav-link`}>
+              <CDBSidebarMenuItem >ManageVouchers</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/voucher" activeClassName="activeClicked" className={`nav-link list`}>
+              <CDBSidebarMenuItem >Apply Vouchers</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="" activeClassName="activeClicked" className={`nav-link`}>
+              <CDBSidebarMenuItem >Deals</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/deals" activeClassName="activeClicked" className={`nav-link list`}>
+              <CDBSidebarMenuItem >Create Deals</CDBSidebarMenuItem>
+            </NavLink>
             <NavLink exact to="/adminmessage" activeClassName="activeClicked" className={`nav-link`}>
               <CDBSidebarMenuItem >ChatHandling</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/adminmessage" activeClassName="activeClicked" className={`nav-link list`}>
               <CDBSidebarMenuItem >Chat</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/manageorder" activeClassName="activeClicked" className={`nav-link`}>
-              <CDBSidebarMenuItem >ManageOrder</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked" className={`nav-link`}>
-              <CDBSidebarMenuItem >Manage Vouchers</CDBSidebarMenuItem>
-            </NavLink>
-            {/* <NavLink exact to="/addvouchers" activeClassName="activeClicked" className={`nav-link list`}>
-              <CDBSidebarMenuItem >Add Vouchers</CDBSidebarMenuItem>
-            </NavLink> */}
-            <NavLink exact to="/applyvouchers" activeClassName="activeClicked" className={`nav-link list`}>
-              <CDBSidebarMenuItem >Apply Vouchers</CDBSidebarMenuItem>
             </NavLink>
             {/* <DropdownButton id="dropdown-basic-button" title="Dropdown Menu">
               <Dropdown.Item href="#/action-1">Action 1</Dropdown.Item>

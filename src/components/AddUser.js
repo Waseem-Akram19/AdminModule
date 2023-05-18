@@ -189,7 +189,7 @@ const AddUser = () => {
                       onChange={handleInputChange}
                     />
                   </Form.Group>
-                  <Button type="submit" className=" mt-3 px-3 btn" style={{ backgroundColor: 'lightgray', color: 'black', width: "20%" }}>
+                  <Button type="submit" className=" mt-3 px-3 btn" style={{ backgroundColor: '#FF8B66', color: 'black', width: "20%" }}>
                     Submit
                   </Button>
                 </Form>

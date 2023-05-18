@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import ManageUser from './components/ManageUser';
 import ManageFood from './components/ManageFood';
@@ -20,15 +21,17 @@ import UpdateOrder from './components/UpdateOrder';
 import UpdateFoodBiscuits from './components/UpdateFoodBiscuits';
 import UpdatedFoodDrinks from './components/UpdatedFoodDrinks';
 import UpdatedFoodFastFood from './components/UpdatedFoodFastFood';
-
 import AddVouchers from './components/AddVouchers';
-import ApplyVouchers from './components/ApplyVouchers';
+import Voucher from './components/Voucher';
+import Deals from './components/Deals';
+
 const App = () => {
   return ( 
       <Router>
         <div>
           <Routes>
-              <Route path='/' element={<Dashboard/>} />
+              <Route path='/' element={<Welcome/>} />
+              <Route path='/dashboard' element={<Dashboard/>} />
               <Route path='/manageuser' element={<ManageUser/>} />
               <Route path='/managefood' element={<ManageFood/>} />
               {/* <Route path='/chat' element={<Chat/>} /> */}
@@ -49,7 +52,8 @@ const App = () => {
               <Route path='/manageorder' element={<ManageOrder/>} />
               <Route path='/updateorder/:userKey' element={<UpdateOrder/>} />
               <Route path='/addvouchers/:id' element={<AddVouchers/>} />
-              <Route path='/applyvouchers' element={<ApplyVouchers/>} />
+              <Route path='/voucher' element={<Voucher/>}/>
+              <Route path='/deals' element={<Deals/>}/>
           </Routes>
         </div>
        </Router>

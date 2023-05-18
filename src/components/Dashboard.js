@@ -11,6 +11,10 @@ import Navbar from './Navbar'
 import './Dashboard.css'
 
 const Dashboard = () => {
+  const styles = {
+    backgroundColor: '#fff', // set the background color to a light gray
+    // height: '100vh', // set the height of the component to be the full viewport height
+};
   const [recordCount, setRecordCount] = useState(0);
   const [OrderCount, setOrderCount] = useState(0);
   const [users, setUsers] = useState([]);
@@ -69,7 +73,7 @@ const Dashboard = () => {
   const progressValue = recordCount > 0 ? (recordCount / 100) * 100 : 0; // calculate progress value based on record count
   const progressOrderValue = OrderCount > 0 ? (OrderCount / 100) * 100 : 0;
   return (
-    <div className='dashborad d-flex'>
+    <div className='dashborad d-flex' style={styles}>
         <div>
           <Sidebar />
         </div>
@@ -104,7 +108,7 @@ const Dashboard = () => {
                       <h6 className="h5 font-weight-bold text-dark head">Messages</h6>
                       <div className="rounded-circle bg-grey px-2 py-1"><i className="fas fa-comment-alt"></i></div>
                     </div>
-                    <div className="d-flex mt-4">
+                    <div className="d-flex mt-4" style={{display:"flex", flexDirection:"column"}}>
                       {users.length > 0 ? (
                         users.map((userKey, index) => (
                           <div key={index}>
@@ -177,11 +181,11 @@ const Dashboard = () => {
                         <div className="text-right d-flex flex-column justify-content-between">
                           <div className="d-flex align-items-center justify-content-between text-primary">
                             <span style={{ fontSize: "3em", margin: "-2rem 0px -1.5rem 0px" }}>&#8226;</span>
-                            <span className="small">August</span>
+                            <span className="small">May</span>
                           </div>
                           <div className="d-flex align-items-center justify-content-between text-warning">
                             <span style={{ fontSize: "3em", margin: "-2rem 0px -1.5rem 0px" }}>&#8226;</span>
-                            <span className="small ml-2">September</span>
+                            <span className="small ml-2">June</span>
                           </div>
                         </div>
                       </div>

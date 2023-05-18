@@ -81,12 +81,12 @@ const ManageUser = () => {
                       <td>{users[id].allergicitems}</td>
                       <td>{users[id].disease}</td>
                       <td>
-                        <Link to={`/updateuser/${id}`}>
+                        {/* <Link to={`/updateuser/${id}`}>
                           <Button variant='info' title="Edit user details"
                             className="mx-2"> Edit</Button>
-                        </Link>
+                        </Link> */}
                         <Button
-                          style={{width:"30%"}}
+                          style={{width:"70%"}}
                           variant="danger"
                           title="Delete user"
                           onClick={() => onDeleteUser(id)}
@@ -101,9 +101,9 @@ const ManageUser = () => {
             </Table>
           </Col>
         </Row>
-        <Link to={'/adduser'}>
+        {/* <Link to={'/adduser'}>
           <Button variant='primary' style={{width:"8%",height:"15%"}}> Add User</Button>
-        </Link>
+        </Link> */}
       </Container>
       </div>
     </div>
